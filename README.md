@@ -1,5 +1,11 @@
 # 🚀 应用管理客户端 (App Manager Client & Django Backend)
 
+网页演示：http://vip.itvip.com.cn:8000/
+
+客户端<img width="1286" height="793" alt="image" src="https://github.com/user-attachments/assets/c5ac1922-e8a3-41ec-b10f-dd19b4a1a47a" />
+
+
+
 本项目是一个跨平台的应用管理系统，由 **Django REST Framework** 提供 API 后端服务，并使用 **Electron (或 PWA)** 作为客户端前端，旨在提供一个简洁、集中的应用导航和管理界面。
 
 ---
