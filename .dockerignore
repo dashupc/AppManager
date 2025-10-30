@@ -1,0 +1,25 @@
+# Python/Django 忽略项
+__pycache__
+*.pyc
+*.log
+.mypy_cache
+.pytest_cache
+*.sqlite3
+.DS_Store
+
+# 虚拟环境目录 (VENV)
+venv
+env
+
+# 依赖项管理文件
+pip-log.txt
+dist
+build
+
+# Docker 自身文件
+Dockerfile
+.dockerignore
+
+# 媒体文件 (MEDIA) - 生产环境通常使用外部存储或卷，而不是包含在镜像中
+# 如果您需要在镜像中包含媒体文件，请注释掉 MEDIA_ROOT 的路径
+media/

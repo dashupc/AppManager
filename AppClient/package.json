@@ -1,0 +1,52 @@
+{
+  "name": "app-manager-client",
+  "version": "1.0.0",
+  "description": "Desktop client for the Django App Manager.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    "electron-dl": "^3.5.0",
+    "electron-log": "^4.4.8"
+  },
+  "devDependencies": {
+    "electron": "^38.4.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.yourcompany.appmanagerclient",
+    "productName": "应用管理客户端",
+    "copyright": "Copyright © 2025 Your Name",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer.js",
+      "index.html",
+      "style.css",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "build/installer.ico",
+      "uninstallerIcon": "build/uninstaller.ico",
+      "deleteAppDataOnUninstall": false
+    }
+  }
+}

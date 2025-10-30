@@ -1,0 +1,13 @@
+# Django Web Application / API
+Django~=4.2  # 基础框架，使用4.x版本
+djangorestframework~=3.14  # 用于构建应用的 RESTful API
+django-cors-headers~=4.3  # 如果 Electron/PWA 客户端与 Django API 跨域，需要此包处理CORS
+
+# 文件处理与管理
+Pillow~=10.1  # 图像处理库，通常是上传 Logo 或图标时 Django 模型的ImageField所依赖
+# python-dotenv~=1.0  # (可选) 用于本地开发时加载 .env 文件中的配置，推荐使用
+
+# 数据库驱动 (根据您的实际数据库选择一个)
+psycopg2-binary~=2.9  # 如果使用 PostgreSQL 数据库
+# mysqlclient~=2.2  # 如果使用 MySQL 数据库
+# 如果使用 SQLite，则无需额外驱动

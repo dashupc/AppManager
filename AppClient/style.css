@@ -1,0 +1,199 @@
+/* style.css */
+
+:root {
+    --sidebar-width: 180px;
+    --log-height: 120px;
+    --primary-color: #007bff; /* 蓝色 */
+    --install-color: #28a745; /* 绿色 */
+    --download-color: #ffc107; /* 黄色 */
+    --bg-light: #f8f9fa;
+    --bg-dark: #343a40;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden; 
+}
+
+#app-wrapper {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+/* -------------------- 1. Sidebar (左侧) -------------------- */
+#sidebar {
+    width: var(--sidebar-width);
+    padding: 20px 0;
+    background-color: #fff;
+    border-right: 1px solid #dee2e6;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0; 
+    overflow-y: auto;
+}
+#sidebar h2 { padding: 0 20px; margin-top: 0; font-size: 1.5em; color: var(--primary-color); }
+#category-list { flex-grow: 1; overflow-y: auto; padding-bottom: 10px; }
+.category-item {
+    display: block; padding: 10px 20px; text-decoration: none; color: var(--bg-dark);
+    font-size: 0.95em; transition: background-color 0.2s, color 0.2s;
+}
+.category-item:hover { background-color: #e9ecef; }
+.category-item.active { background-color: var(--primary-color); color: white; }
+#sidebar-bottom { padding: 10px 20px; border-top: 1px solid #dee2e6; }
+#about-button {
+    width: 100%; padding: 10px; background-color: var(--bg-dark); color: white;
+    border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.2s;
+}
+
+/* -------------------- 2. Main Content (右侧) -------------------- */
+#main-content { flex-grow: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; }
+#top-bar { margin-bottom: 20px; display: flex; justify-content: flex-end; }
+#search-input { width: 300px; padding: 10px 15px; border: 1px solid #ced4da; border-radius: 4px; font-size: 1em; }
+
+
+
+/* 💥 新增：刷新按钮样式 */
+#refresh-button {
+    padding: 8px 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    flex-shrink: 0; /* 防止按钮被压缩 */
+}
+
+#refresh-button:hover {
+    background-color: #0056b3;
+}
+
+
+/* 应用卡片网格布局 (3列卡片) */
+#app-cards-container {
+    flex-grow: 1; display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+    gap: 20px; padding-bottom: 20px;
+}
+.app-card {
+    background-color: #fff; border: 1px solid #dee2e6; border-radius: 8px; padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    /* Logo | Info | Button 的 3 列布局 */
+    grid-template-columns: 60px 1fr 100px; 
+    display: grid; gap: 15px; align-items: center;
+}
+.app-logo img { width: 50px; height: 50px; border-radius: 4px; object-fit: cover; }
+.app-info { display: flex; flex-direction: column; min-width: 0; }
+.app-info h3 { margin: 0; font-size: 1.1em; color: #343a40; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.app-info p { margin: 3px 0 0; font-size: 0.85em; color: #6c757d; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.action-button {
+    width: 100%; padding: 8px 5px; color: white; border: none; border-radius: 4px;
+    cursor: pointer; font-size: 0.9em; transition: opacity 0.2s, background-color 0.2s;
+}
+.action-button:disabled { opacity: 0.6; cursor: not-allowed; }
+.install-button { background-color: var(--install-color); }
+.download-button { background-color: var(--download-color); color: var(--bg-dark); }
+
+/* -------------------- 3. Website Navigation (底部通栏) -------------------- */
+#website-navigation { border-top: 1px solid #dee2e6; padding-top: 15px; margin-top: auto; flex-shrink: 0; }
+#nav-list { display: flex; flex-wrap: wrap; gap: 15px; }
+.nav-link { text-decoration: none; color: var(--primary-color); padding: 5px 10px; border: 1px solid var(--primary-color); border-radius: 4px; font-size: 0.9em; }
+
+/* -------------------- 4. Log Panel (最底部) -------------------- */
+#log-panel {
+    height: var(--log-height); background-color: var(--bg-dark); color: #fff;
+    padding: 10px 20px; flex-shrink: 0; display: flex; flex-direction: column;
+    border-top: 1px solid #495057;
+}
+#log-content {
+    flex-grow: 1; overflow-y: auto; font-family: monospace; font-size: 0.8em;
+    white-space: pre-wrap; word-wrap: break-word;
+}
+.log-entry.error { color: #dc3545; }
+.log-entry.warning { color: #ffc107; }
+.log-entry.success { color: #28a745; }
+
+
+.modal {
+    /* 初始隐藏，占据全屏 */
+    display: none; 
+    position: fixed;
+    z-index: 1000; /* 确保在最上层 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); /* 半透明黑色背景 */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto; /* 顶部/底部 10% 间距，水平居中 */
+    padding: 25px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 500px; /* 最大宽度 */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.settings-group {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.settings-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+#api-url-input {
+    width: 100%; 
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box; 
+    font-size: 1em;
+}
+
+#save-api-url-button {
+    padding: 12px;
+    font-size: 1em;
+}
+
+#settings-message {
+    font-size: 0.8em;
+    margin-top: 10px;
+    color: #6c757d;
+}

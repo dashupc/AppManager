@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>应用管理客户端</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app-wrapper">
+        
+        <div id="sidebar">
+            <h2>应用分类</h2>
+            <div id="category-list">
+                </div>
+            
+            <div id="sidebar-bottom">
+                <button id="settings-api-button" class="sidebar-button">设置API</button>
+                <button id="about-button" class="sidebar-button">关于本应用</button>
+            </div>
+        </div>
+
+        <div id="main-content">
+            
+            <div id="top-bar">
+                <input type="text" id="search-input" placeholder="输入应用名称或描述进行搜索..." />
+                <button id="refresh-button">刷新</button> 
+            </div>
+
+            <div id="app-cards-container">
+                <p id="loading-message">正在从服务器加载数据...</p>
+                </div>
+            
+            <div id="website-navigation">
+                <h3>网站导航</h3>
+                <div id="nav-list">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="log-panel">
+        <h4>日志 / 调试信息</h4>
+        <div id="log-content">
+            </div>
+    </div>
+    
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-settings-modal">&times;</span>
+            <h2>API 地址设置</h2>
+            <div class="settings-group">
+                <label for="api-url-input">后端 API 基础 URL (例如: http://127.0.0.1:8000)</label>
+                <input type="text" id="api-url-input" placeholder="请输入 API 基础 URL" />
+                <p id="settings-message">点击 “保存并重载数据” 将应用新的 API 地址。</p>
+            </div>
+            <button id="save-api-url-button" class="action-button install-button">保存并重载数据</button>
+        </div>
+    </div>
+    
+    <script src="renderer.js"></script>
+</body>
+</html>

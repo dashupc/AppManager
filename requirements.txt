@@ -1,0 +1,25 @@
+# 核心框架和工具
+Django~=4.2             # 推荐使用 4.x 版本，如果您的代码基于 3.x，请改为 Django~=3.2
+djangorestframework~=3.14  # 用于构建应用的 RESTful API
+
+# 网络请求与外部通信
+requests~=2.31          # 修复 ModuleNotFoundError，用于发送 HTTP 请求
+
+# 文件和图像处理
+Pillow~=10.1            # 图像处理库，Django ImageField 的标准依赖，用于处理上传的 Logo/图标
+
+# 跨域支持 (如果 Electron 或 PWA 客户端与 Django API 跨域)
+django-cors-headers~=4.3 # 允许不同域名的客户端（如前端/Electron）访问 API
+
+# WSGI 服务器 (用于生产环境部署)
+# 在生产环境中使用 gunicorn 替代 Django 内置的 runserver
+# gunicorn~=21.2         
+
+# 数据库驱动 (根据您的实际数据库选择一个并取消注释)
+# psycopg2-binary~=2.9  # 如果使用 PostgreSQL 数据库
+# mysqlclient~=2.2      # 如果使用 MySQL 数据库
+# 如果使用 SQLite，则无需额外驱动
+
+# (可选) 环境配置管理
+# python-dotenv~=1.0    # 用于本地开发加载 .env 文件中的配置
+beautifulsoup4~=4.12
