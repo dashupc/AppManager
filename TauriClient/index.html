@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>应用管理器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app-wrapper">
+        <div id="sidebar">
+            <h2>应用分类</h2>
+            <div id="category-list">
+                <div class="category-item active">全部应用</div>
+            </div>
+            
+            <div id="sidebar-bottom">
+                <button id="open-downloads-button" class="sidebar-button">打开下载目录</button>
+                <button id="settings-api-button" class="sidebar-button">设置API</button>
+                <button id="about-button" class="sidebar-button">关于本应用</button>
+            </div>
+        </div>
+
+        <div id="main-content">
+            <div id="top-bar">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="输入应用名称或描述进行搜索..." />
+                    <button id="clear-search-button" class="clear-button" title="清除搜索内容">×</button>
+                </div>
+                <button id="refresh-button">刷新</button> 
+            </div>
+
+            <div id="app-cards-container">
+                <p id="loading-message">正在从服务器加载数据...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部浮动网站导航 -->
+    <div id="website-navigation">
+        <div id="nav-list">
+        </div>
+    </div>
+
+    <div id="log-panel">
+        <div id="log-content">
+        </div>
+    </div>
+    
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-settings-modal">&times;</span>
+            <h2>API 设置</h2>
+            <div class="api-settings">
+                <div class="current-api">
+                    <label>当前API地址:</label>
+                    <input type="text" id="current-api-input" readonly>
+                </div>
+                
+                <div class="api-endpoints">
+                    <h3>可选API地址:</h3>
+                    <div class="api-list" id="api-list">
+                        <!-- API列表将通过JavaScript动态生成 -->
+                    </div>
+                </div>
+                
+                <div class="add-api-section">
+                    <h3>手动添加API地址:</h3>
+                    <div class="add-api-form">
+                        <input type="text" id="new-api-input" placeholder="输入新的API地址 (例如: http://example.com/api/v1/applications/)">
+                        <button id="add-api-btn">添加</button>
+                    </div>
+                </div>
+                
+                <div class="api-actions">
+                    <button id="test-speed-btn">测试API速度</button>
+                    <button id="refresh-apis-btn">刷新应用数据</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="main.js"></script>
+</body>
+</html>
